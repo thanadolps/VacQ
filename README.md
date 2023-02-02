@@ -12,7 +12,7 @@ classDiagram
         ««POST» +createHospital(): Hospital
     }
 
-    VacQService ..> Hospitals: /hospital<br><<PATH>>
+    VacQService ..> Hospitals: /hospital<br>«PATH»
 
     class Hospital {
         <<Resource>>
@@ -21,7 +21,7 @@ classDiagram
         ««DELETE» +deleteHospital() Hospital
     }
 
-    Hospitals ..> Hospital: /{hospitalId}<br><<PATH>>
+    Hospitals ..> Hospital: /{hospitalId}<br>«PATH»
 
     class HospitalEntity {
         <<Representation>>
@@ -34,7 +34,7 @@ classDiagram
         - region
     }
 
-    Hospital ..> HospitalEntity: <<use>>
+    Hospital ..> HospitalEntity: «use»
 
 ```
 

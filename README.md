@@ -1,3 +1,43 @@
+## Class Diagrams
+
+```mermaid
+classDiagram
+    class VacQService {
+        <<Application>>
+    }
+
+    class Hospitals {
+        <<Resource>>
+        ««GET» +getHospital(): Hospital
+        ««POST» +createHospital(): Hospital
+    }
+
+    VacQService ..> Hospitals: /hospital<br><<PATH>>
+
+    class Hospital {
+        <<Resource>>
+        ««GET» +getHospital() Hospital
+        ««PUT» +updateHospital() Hospital
+        ««DELETE» +deleteHospital() Hospital
+    }
+
+    Hospitals ..> Hospital: /{hospitalId}<br><<PATH>>
+
+    class HospitalEntity {
+        <<Representation>>
+        - name
+        - address
+        - district
+        - province
+        - postalCode
+        - tel
+        - region
+    }
+
+    Hospital ..> HospitalEntity: <<use>>
+
+```
+
 ## Sequence Diagrams
 
 ```mermaid

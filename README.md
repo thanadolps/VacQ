@@ -55,7 +55,7 @@ alt Create Hospital
     S->>+R: app.use('/hospitals', hospitalsRouter)
     R->>+C: createHospital
     deactivate R
-    C->>+M: create(req.body)
+    C->>+M: Hosptial.create(req.body)
     deactivate S
     M->>+D: HospitalSchema
     D-->>-M: hospital
@@ -68,11 +68,11 @@ alt Get Hospitals
     S->>+R: app.use('/hospitals', hospitalsRouter)
     R->>+C: getHospitals
     deactivate R
-    C->>+M: find(req.body)
+    C->>+M: Hosptial.find(req.body)
     deactivate S
     M->>+D: HospitalSchema
-    D-->>M: hospitals
-    M-->>C: hospitals
+    D-->>-M: hospitals
+    M-->>-C: hospitals
     break Error
         C-->>U: 400 {success: false}
     end
@@ -84,7 +84,7 @@ alt Get Hospital
     S->>+R: app.use('/hospitals', hospitalsRouter)
     R->>+C: getHospital
     deactivate R
-    C->>+M: findById(req.params.id)
+    C->>+M: Hosptial.findById(req.params.id)
     deactivate S
     M->>+D: HospitalSchema
     D-->>-M: hospital
@@ -105,7 +105,7 @@ alt Update Hospital
     S->>+R: app.use('/hospitals', hospitalsRouter)
     R->>+C: putHospital
     deactivate R
-    C->>+M: findByIdAndUpdate(req.params.id)
+    C->>+M: Hosptial.findByIdAndUpdate(req.params.id)
     deactivate S
     M->>+D: HospitalSchema
     D-->>-M: hospital
@@ -125,7 +125,7 @@ alt Delete Hospital
     S->>+R: app.use('/hospitals', hospitalsRouter)
     R->>+C: deleteHospital
     deactivate R
-    C->>+M: findByIdAndDelete(req.params.id)
+    C->>+M: Hosptial.findByIdAndDelete(req.params.id)
     deactivate S
     M->>+D: HospitalSchema
     D-->>-M: hospital

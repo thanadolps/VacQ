@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 
 // Load env vars
@@ -14,8 +15,10 @@ const auth = require("./routes/auth");
 
 const app = express();
 
-// Mount routers
 app.use(express.json());
+app.use(cookieParser());
+
+// Mount routers
 app.use("/api/v1/hospitals", hospitals);
 app.use("/api/v1/auth", auth);
 

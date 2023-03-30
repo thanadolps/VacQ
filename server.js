@@ -14,7 +14,9 @@ const hospitals = require("./routes/hospitals");
 const appointments = require("./routes/appointments");
 const auth = require("./routes/auth");
 
+const cors = require("cors");
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 app.use(cookieParser());
